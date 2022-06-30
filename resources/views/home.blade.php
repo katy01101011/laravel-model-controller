@@ -7,7 +7,55 @@
     <title>Document</title>
 </head>
 <body>
-    {{ $movies[0]['title'] }}
-    <h1>Ciao</h1>
+    <main>
+        <div class="container">
+            <ul>
+                @foreach ($movies as $movie)
+                <li>
+                    <h2>{{ $movie['title'] }}</h2>
+                    <h3>{{ $movie['original_title'] }}</h3>
+                    <h4>{{ $movie['nationality'] }}</h4>
+                    <small>{{ $movie['date'] }}</small>
+                    <h2>Voto {{ $movie['vote'] }}</h2>
+                </li>  
+                @endforeach
+            </ul>
+        </div>
+    </main>
 </body>
 </html>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        margin-top: 6rem;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 2rem
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between
+    }
+
+    li {
+        width: calc(100% / 5 - 2rem);
+        margin-bottom: 4rem;
+        list-style: none;
+        border: 1px solid black;
+        text-align: center;
+        padding-top: 2rem;
+    }
+
+</style>
